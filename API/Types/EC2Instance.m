@@ -15,6 +15,7 @@
 @interface EC2Instance ()
 @property (nonatomic, retain) NSString *instanceId;
 @property (nonatomic, retain) NSString *imageId;
+@property (nonatomic, retain) NSString *vpcId;
 @property (nonatomic, retain) EC2InstanceState *instanceState;
 @property (nonatomic, retain) NSString *instanceType;
 @property (nonatomic, retain) NSString *dnsName;
@@ -31,6 +32,7 @@
 
 @synthesize instanceId = _instanceId;
 @synthesize imageId = _imageId;
+@synthesize vpcId = _vpcId;
 @synthesize instanceState = _instanceState;
 @synthesize instanceType = _instanceType;
 @synthesize dnsName = _dnsName;
@@ -76,6 +78,10 @@
 				self.ipAddress = [TBXML textForElement:element];
 			else if ([elementName isEqualToString:@"tagSet"])
 				self.tagSet = [self parseElement:element asArrayOf:[EC2Tag class]];
+            else if ([elementName isEqualToString:@"vpcId"])
+                self.vpcId = [TBXML textForElement:element];
+            
+            
 
 			element = element->nextSibling;
 		}

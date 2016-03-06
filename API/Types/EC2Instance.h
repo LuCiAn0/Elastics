@@ -16,6 +16,7 @@
 @interface EC2Instance : AWSType {
 @private
 	NSString			*_instanceId;
+    NSString			*_vpcId;
 	NSString			*_imageId;
 	EC2InstanceState	*_instanceState;
 	NSString			*_instanceType;
@@ -31,6 +32,7 @@
 
 @property (nonatomic, retain, readonly) NSString *instanceId;
 @property (nonatomic, retain, readonly) NSString *imageId;
+@property (nonatomic, retain, readonly) NSString *vpcId;
 @property (nonatomic, retain, readonly) EC2InstanceState *instanceState;
 @property (nonatomic, retain, readonly) NSString *instanceType;
 @property (nonatomic, retain, readonly) NSString *dnsName;

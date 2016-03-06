@@ -124,8 +124,6 @@ static NSImage *_brImage;
 
 + (void)initialize
 {
-	TB_VALIDATE_EXPIRATION_DATE();
-	TB_VALIDATE_RECEIPT();
 	
 	if (!_titleColor)               _titleColor = [[NSColor colorWithDeviceRed:(0.f/255.f) green:(112.f/255.f) blue:(180.f/255.f) alpha:1.f] retain];
 	if (!_taggedInstanceColor)      _taggedInstanceColor = [[NSColor blackColor] retain];
@@ -859,6 +857,7 @@ static NSImage *_brImage;
 
 	[menu addItem:[self titleItemWithTitle:@"INSTANCE DETAILS"]];
 	[menu addItem:[self infoItemWithLabel:@"Instance ID" info:instance.instanceId action:@selector(copyToPasteboardAction:) tooltip:@"Copy Instance ID"]];
+    [menu addItem:[self infoItemWithLabel:@"VPC ID" info:instance.vpcId action:@selector(copyToPasteboardAction:) tooltip:@"Copy VPC ID"]];
 	[menu addItem:[self infoItemWithLabel:@"Image ID" info:instance.imageId action:@selector(copyToPasteboardAction:) tooltip:@"Copy Image ID"]];
 	[menu addItem:[self infoItemWithLabel:@"Instance Type" info:instance.instanceType action:NULL tooltip:nil]];
 	[menu addItem:[self infoItemWithLabel:@"Monitoring" info:instance.monitoring.monitoringType action:NULL tooltip:nil]];
